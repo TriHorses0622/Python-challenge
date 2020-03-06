@@ -1,0 +1,21 @@
+#PyRoll Main File
+dataFile = '/Users/zhongyuliu/Desktop/colnyc201907data3/Homework/03-Python/Instructions/PyPoll/Resources/election_data.csv'
+import pandas as pd
+dataFrame = pd.read_csv(dataFile, header=0)
+#print(dataFrame)
+print('Election Results')
+print('------------------------')
+rowsNum=len(dataFrame.index)
+print('Total Votes:  '+str(rowsNum))
+print('------------------------')
+khanCount=dataFrame.loc[dataFrame.Candidate == 'Khan','Candidate'].count()
+print('Khan: '+str(khanCount/rowsNum*100)+'% ('+str(khanCount)+')')
+correyCount=dataFrame.loc[dataFrame.Candidate == 'Correy','Candidate'].count()
+print('Correy: '+str(correyCount/rowsNum*100)+'% ('+str(correyCount)+')')
+liCount=dataFrame.loc[dataFrame.Candidate == 'Li','Candidate'].count()
+print('Li: '+str(liCount/rowsNum*100)+'% ('+str(liCount)+')')
+otooleyCount=dataFrame.loc[dataFrame.Candidate == 'O\'Tooley','Candidate'].count()
+print('O\'Tooley: '+str(otooleyCount/rowsNum*100)+'% ('+str(otooleyCount)+')')
+print('------------------------')
+print('Winner: Khan')
+print('------------------------')
